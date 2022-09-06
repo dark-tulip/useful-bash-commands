@@ -16,7 +16,7 @@ or
 sudo n 14.18.1
 ```
 
-## Авто обновление браузера при разработке. VSCode (Enbale live server on)  
+## Live Server VS code
 <img src="https://user-images.githubusercontent.com/89765480/184475711-fe4d7636-1a12-41d4-8f6d-96145907f5b9.png" width="900px" height="300px">
 Enable auto save on VS code
 File -> Autosave (after delay)
@@ -34,3 +34,10 @@ DRAW='\033[92m'
 NO_COLOR='\033[0m' # No Color
 echo -e ${DRAW}" :: SERVER :: pulled and recreated"${NC}
 ```
+
+## Update version of java
+``` bash
+sudo apt-get install openjdk-11-jdk
+sudo update-alternatives --config java
+```
+
