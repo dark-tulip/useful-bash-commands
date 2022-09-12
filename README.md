@@ -45,3 +45,17 @@ sudo update-alternatives --config java
 sudo apt-get update
 sudo apt-get install mysql-server
 
+## Mysql
+``` sql
+sudo mysql --user=root mysql
+
+SHOW VARIABLES WHERE Variable_name = 'port';  // default 3306
+SELECT DATABASE();
+SELECT USER();
+
+CREATE DATABASE testdb;
+USE testdb;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+CREATE USER 'testuser'@'localhost' IDENTIFIED BY '111';
+GRANT ALL PRIVILEGES ON *.* TO 'testuser'@'localhost';
+```
