@@ -59,3 +59,13 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password
 CREATE USER 'testuser'@'localhost' IDENTIFIED BY '111';
 GRANT ALL PRIVILEGES ON *.* TO 'testuser'@'localhost';
 ```
+
+## Alias for sublime text macos (.zshrc)
+``` bash
+cd ~
+nano .zshrc
+# paste your path to sublime
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+# activate alias
+source .zshrc
+```
