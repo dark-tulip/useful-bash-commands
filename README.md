@@ -1,5 +1,10 @@
 # Полезные bash команды
 
+#### Удалить все images
+`docker rmi -f $(docker images -aq)`
+#### To delete all containers including its volumes use,
+`docker rm -vf $(docker ps -aq)`
+
 ### OS architecture
 ``` bash
 dpkg --print-architecture
