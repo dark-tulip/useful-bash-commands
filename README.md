@@ -79,7 +79,7 @@ source .zshrc
 
 - Узнать архитектуру
 `Ubuntu 22.04.01 LTS amd64`
-```
+```bash
 # Download the binary for your system
 sudo curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
 
@@ -92,5 +92,7 @@ sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/
 # Install and run as service
 sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
 sudo gitlab-runner start
+
+# Register the runner
+sudo gitlab-runner register --url http://gitlab.companyname/ --registration-token $REGISTRATION_TOKEN
 ```
-sudo gitlab-runner register
