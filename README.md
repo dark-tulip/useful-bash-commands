@@ -11,6 +11,15 @@ dpkg --print-architecture
 uname -a
 lsb_release -a
 ```
+#### SELENOID
+$ docker run -d --name selenoid-ui  \
+    --link selenoid                 \
+    -p 10101:10101                    \
+    aerokube/selenoid-ui --selenoid-uri=http://selenoid:4444
+
+ docker run -d --name selenoid-ui --link selenoid -p 8080:8080 aerokube/selenoid-ui --selenoid-uri=http://selenoid:4444
+    
+docker pull aerokube/ggr-ui:latest-release
 
 ## Install specific version of node js
 ``` bash
