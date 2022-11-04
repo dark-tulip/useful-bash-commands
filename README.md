@@ -1,5 +1,28 @@
 # Полезные bash команды
 
+
+# Настройка гитлаб раннера на локальном сервере
+
+- Узнать архитектуру
+`Ubuntu 22.04.01 LTS amd64`
+```bash
+# Download the binary for your system
+sudo curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
+
+# Give it permissions to execute
+sudo chmod +x /usr/local/bin/gitlab-runner
+
+# Create a GitLab CI user
+sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
+
+# Install and run as service
+sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
+sudo gitlab-runner start
+
+# Register the runner
+sudo gitlab-runner register --url http://gitlab.companyname/ --registration-token $REGISTRATION_TOKEN
+```
+
 ### ssh connection by alias
 ```
 cd .ssh
@@ -12,6 +35,9 @@ Host gitlab-runner
   IdentitiesOnly=yes
   Port 22
 ```
+
+
+
 
 
 #### Удалить все images
@@ -98,24 +124,3 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 source .zshrc
 ```
 
-# Настройка гитлаб раннера на локальном сервере
-
-- Узнать архитектуру
-`Ubuntu 22.04.01 LTS amd64`
-```bash
-# Download the binary for your system
-sudo curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
-
-# Give it permissions to execute
-sudo chmod +x /usr/local/bin/gitlab-runner
-
-# Create a GitLab CI user
-sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
-
-# Install and run as service
-sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
-sudo gitlab-runner start
-
-# Register the runner
-sudo gitlab-runner register --url http://gitlab.companyname/ --registration-token $REGISTRATION_TOKEN
-```
