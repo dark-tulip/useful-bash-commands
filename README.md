@@ -1,5 +1,19 @@
 # Полезные bash команды
 
+### ssh connection by alias
+```
+cd .ssh
+nano config
+```
+```
+Host gitlab-runner
+  Hostname 192.168.10.10
+  User gitlab-runner
+  IdentitiesOnly=yes
+  Port 22
+```
+
+
 #### Удалить все images
 `docker rmi -f $(docker images -aq)`
 #### To delete all containers including its volumes use,
