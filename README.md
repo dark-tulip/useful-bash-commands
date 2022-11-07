@@ -16,10 +16,11 @@ sudo n 14.18.1
 
 sudo npm install yarn --global
 
-sudo apt install docker-compose
+sudo apt install docker-compose -y
 
 sudo chmod 777 -R ~/builds/
 
+rm -rf ~/.bash_logout
 
 # Add user to docker group
 sudo usermod -aG docker $USER
