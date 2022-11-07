@@ -1,42 +1,76 @@
 # Полезные bash команды
-
-
-# Настройка гитлаб раннера на локальном сервере
-
 - Узнать архитектуру
 `Ubuntu 22.04.01 LTS amd64`
-```bash
-# Download the binary for your system
-sudo curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
 
-# Give it permissions to execute
-sudo chmod +x /usr/local/bin/gitlab-runner
-
-# Create a GitLab CI user
-sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
-
-# Install and run as service
-sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
-sudo gitlab-runner start
-
-# Register the runner
-sudo gitlab-runner register --url http://gitlab.companyname/ --registration-token $REGISTRATION_TOKEN
-```
 
 ### ssh connection by alias
-```
+``` bash
 cd .ssh
 nano config
 ```
-```
+``` bash
 Host gitlab-runner
   Hostname 192.168.10.10
   User gitlab-runner
   IdentitiesOnly=yes
   Port 22
 ```
+<hr>
+
+# Настройка гитлаб раннера на локальном сервере - shell runner
+### 1. Add user to the sudoers file
+``` sh
+sudo adduser gitlab-runner sudo
+```
+### 2. Download the binary for your system
+``` bash
+sudo curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
+```
+![image](https://user-images.githubusercontent.com/89765480/200255079-ffdb6603-0f72-49cb-8fe2-82f9f84de4ca.png)
+
+### 3. Give it permissions to execute
+```bash
+sudo chmod +x /usr/local/bin/gitlab-runner
+```
+![image](https://user-images.githubusercontent.com/89765480/200255254-dc84b9e1-5732-49be-8185-61e5f93bbffe.png)
+
+### 4. Create a GitLab CI user
+```bash
+sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
+```
+![image](https://user-images.githubusercontent.com/89765480/200255322-82ee6391-7923-45d1-8c09-fb952c948218.png)
+
+### 5. Install and run as service
+```bash
+sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
+sudo gitlab-runner start
+```
+![image](https://user-images.githubusercontent.com/89765480/200255676-6706a999-2e20-47be-b4fa-1b36961643fd.png)
 
 
+### 6. Register the runner
+``` bash
+sudo gitlab-runner register --url http://gitlab.companyname/ --registration-token $REGISTRATION_TOKEN
+```
+![image](https://user-images.githubusercontent.com/89765480/200257442-db1998d6-06d1-4b63-b55e-12d21c0274b6.png)
+### 7. Connect with gitlab repo
+generate ssh keys
+``` bash
+ssh-keygen -t ed25519
+```
+![image](https://user-images.githubusercontent.com/89765480/200259390-2aa9bc1e-74df-45cc-a45b-65f0647fe215.png)
+paste into gitlab
+![image](https://user-images.githubusercontent.com/89765480/200260948-d8b7a8a2-a943-4106-a982-0e0a705f5d3f.png)
+### 8. Let pick untagged jobs
+
+![image](https://user-images.githubusercontent.com/89765480/200261610-a1d1ee86-a9bb-480a-8ae6-cd5ed06e9cc4.png)
+
+### 9. Delete .bash_logout
+```bash
+rm -rf ~/.bash_logout
+```
+
+![image](https://user-images.githubusercontent.com/89765480/200262579-81e61bed-052e-41d3-bd9d-fc50c2c773e3.png)
 
 
 
