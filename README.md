@@ -1,7 +1,33 @@
 # Полезные bash команды
 - Узнать архитектуру
 `Ubuntu 22.04.01 LTS amd64`
+- add permanent env variables into
+`etc/environment`
+###
+``` Install npm 
+# update packages and install npm
+sudo apt-get upgrade -y
+sudo apt-get update -y
+sudo apt install npm 
 
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n 14.18.1
+
+sudo npm install yarn --global
+
+sudo apt install docker-compose
+
+sudo chmod 777 -R ~/builds/
+
+
+# Add user to docker group
+sudo usermod -aG docker $USER
+docker login dockerhub.company.kz -u username -p password
+
+# Give permission to docker socket
+sudo chmod 777 /run/docker.sock
+```
 
 ### ssh connection by alias
 ``` bash
@@ -57,6 +83,7 @@ sudo gitlab-runner register --url http://gitlab.companyname/ --registration-toke
 generate ssh keys
 ``` bash
 ssh-keygen -t ed25519
+cat ~/.ssh/id_ed25519.pub 
 ```
 ![image](https://user-images.githubusercontent.com/89765480/200259390-2aa9bc1e-74df-45cc-a45b-65f0647fe215.png)
 paste into gitlab
@@ -99,9 +126,8 @@ docker pull aerokube/ggr-ui:latest-release
 ``` bash
 sudo npm cache clean -f
 sudo npm install -g n
-sudo n stable
-or 
 sudo n 14.18.1
+sudo n stable
 ```
 
 ## Live Server VS code
