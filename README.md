@@ -18,6 +18,11 @@ if you're OK you will see
 
 <img width="1326" alt="image" src="https://user-images.githubusercontent.com/89765480/203627350-9f00e3db-7cdd-4048-bb46-b5926bc13718.png">
 
+### ssh 
+```
+hydra -l admin -P passwordlist ssh://192.168.100.155 -V
+```
+
 ###
 ``` Install npm 
 # update packages and install npm
