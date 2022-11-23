@@ -1,3 +1,14 @@
+# Hydra 9.4 http-get-form broot force
+- (:) - Это разделитель между заголовками запроса
+- (\:) - Это экранирование символа, чтобы передать в заголовке запроса
+- Все что внутри `^USER^` будет подставляться переданным или значением из словаря
+```bash
+hydra -l admin -p password -V 127.0.0.1 http-get-form "/dvwa/vulnerabilities/brute/index.php:username=^USER^&password=^PASS^&Login=Login\:Username and/or password incorrect.:H=Cookie\:PHPSESSID=ud8cn4dlf3o7b2entm60t49tb5; security=low;"
+```
+if you're OK you will see
+
+
+
 # Полезные bash команды
 - Узнать архитектуру
 `Ubuntu 22.04.01 LTS amd64`
