@@ -6,6 +6,11 @@
 `Ubuntu 22.04.01 LTS amd64`
 - add permanent env variables into
 `etc/environment`
+### Rename file suffix
+`bash
+for filename in *.xml; do mv "$filename" "1_${filename}"; done;
+`
+
 
 ### Hydra 9.4 http-get-form broot force
 - `:` - Это разделитель между заголовками запроса
