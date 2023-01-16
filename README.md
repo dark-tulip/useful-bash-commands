@@ -181,6 +181,12 @@ sudo apt-get install openjdk-11-jdk
 sudo update-alternatives --config java
 ```
 
+## gitignore
+```bash 
+git rm -rf --cached .
+git add .
+```
+
 ## Install mysql server
 sudo apt-get update
 sudo apt-get install mysql-server
