@@ -1,4 +1,7 @@
-### Контейнеры
+### Как удалить все контейнеры которые начинаются с mytest
+```
+docker rm -f $(docker ps -a -q --filter "name=mytest*")
+```
 ### Dockerfile
 ```
 FROM - взять за основу такой то образ
