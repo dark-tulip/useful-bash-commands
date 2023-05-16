@@ -1,3 +1,12 @@
+### Crontab 
+```bash
+crontab -e  # execute from current user
+crontab -r  # удалить все существующие задачи командой
+grep CRON /var/log/syslog  # посмотреть системный лог исполнения
+# run every month given script
+@monthly /home/gitlab-runner/remove-builds.sh
+
+```
 ### Как удалить все контейнеры которые начинаются с mytest
 ```
 docker rm -f $(docker ps -a -q --filter "name=mytest*")
