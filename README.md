@@ -14,9 +14,7 @@ docker rm -f $(docker ps -a -q --filter "name=mytest*")
 ### Dockerfile
 ```
 FROM - взять за основу такой то образ
-
 ```
-
 ### Перебор паролей для WPA2 Aircrack-ng
 
 `iwconfig`
