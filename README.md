@@ -1,3 +1,19 @@
+#### Запустить bash скрипты параллельно
+```bash
+#!/bin/bash
+
+# Задаем количество потоков, в которых хотим запустить скрипт
+num_threads=4
+
+# Запускаем цикл
+for ((i = 1; i <= $num_threads; i++)); do
+    ./your_script.sh &  # Запускаем скрипт в фоновом режиме
+done
+
+# Ожидаем завершения всех фоновых задач
+wait
+```
+
 ### Crontab 
 ```bash
 crontab -e  # execute from current user
