@@ -66,3 +66,82 @@ Server #1
 ...
 Server #1
 ```
+## Sticky session (ip_hash)
+- запросы от одного и того же клиента падают тому же серверу
+- если сервер упал, ip_hash перераспределяется на другой
+```bash
+events {
+
+}
+
+http {
+	upstream php_servers {
+		ip_hash;
+		server localhost:20001;
+		server localhost:20002;
+		server localhost:20003;
+	}
+	server {
+		listen 8888;
+		location / {
+			proxy_pass http://php_servers;
+		}
+	}
+}
+```
+```
+> while sleep 0.5; do curl http://localhost:8888; done
+Server #3
+Server #3
+Server #3
+...
+Server #3
+```
+## Least connected
+- по числу подключений или нагрузки
+- директива least_conn
+```bash
+events {}
+
+http {
+	upstream php_servers {
+		least_conn;
+		server localhost:20001;
+		server localhost:20002;
+		server localhost:20003;
+	}
+	server {
+		listen 8888;
+		location / {
+			proxy_pass http://php_servers;
+		}
+	}
+}
+```
+```bash
+cat slow_server.php 
+<?php
+	sleep(10);
+	echo "Slow server is UP!!!\n";
+
+```
+- запрос попадет на медленный сервер периодически, в основном на быстрые №2 и №3
+```
+# FIRST THREAD
+> while sleep 0.5; do curl http://localhost:8888; done
+Slow server is UP!!!
+Server #2
+Server #3
+Slow server is UP!!!
+Server #2
+Server #3
+
+# SECOND THREAD works faster
+> while sleep 0.5; do curl http://localhost:8888; done
+Server #2
+Server #3
+Server #2
+Server #3
+Server #2
+Server #3
+Server #2
