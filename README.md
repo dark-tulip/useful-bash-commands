@@ -1,3 +1,9 @@
+### grep of gzip archive
+```bash
+zcat ad.*.log.gz | grep -B 10 -A 10 зжанова
+```
+
+
 #### Запустить bash скрипты параллельно
 ```bash
 #!/bin/bash
