@@ -1,4 +1,4 @@
-## RoundRobin load balancer on Nginx
+# RoundRobin load balancer on Nginx (default)
 
 ### up localhost servers
 ```bash
@@ -66,7 +66,7 @@ Server #1
 ...
 Server #1
 ```
-## Sticky session (ip_hash)
+# Sticky session (ip_hash)
 - запросы от одного и того же клиента падают тому же серверу
 - если сервер упал, ip_hash перераспределяется на другой
 ```bash
@@ -97,7 +97,7 @@ Server #3
 ...
 Server #3
 ```
-## Least connected
+# Least connected (least_conn)
 - по числу подключений или нагрузки
 - директива least_conn
 ```bash
