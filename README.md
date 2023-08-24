@@ -1,3 +1,18 @@
+## Setup path for bin
+```
+cd ~
+nano .zshrc
+
+# paste path to kafka binary
+PATH="$PATH:/Users/tansh/kafka_2.13-3.1.0/bin"
+
+# open new tab in terminal
+echo $PATH
+
+# now works
+kafka-topics.sh 
+```
+
 ### grep of gzip archive
 ```bash
 zcat ad.*.log.gz | grep -B 10 -A 10 зжанова
