@@ -1,3 +1,14 @@
+# Кавычки решают все в переменных окружениях
+```bash
+tansh@tansh:~$ APPPASS=Pa$$word$3c3t
+tansh@tansh:~$ echo $APPPASS
+Pa3529352wordc3t
+
+tansh@tansh:~$ APPPASS='Pa$$word$3c3t'
+tansh@tansh:~$ echo $APPPASS
+Pa$$word$3c3t
+```
+
 ## Setup path for bin
 ```
 cd ~
