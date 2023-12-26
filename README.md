@@ -139,6 +139,17 @@ docker login dockerhub.company.kz -u username -p password
 sudo chmod 777 /run/docker.sock
 ```
 
+### Node version management
+
+```
+sudo apt update
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+nvm ls-remote
+nvm install [version.number]
+```
+then close and open terminal
+
+
 ### ssh connection by alias
 ``` bash
 cd .ssh
