@@ -117,3 +117,15 @@ PORT      STATE         SERVICE
 Nmap done: 1 IP address (1 host up) scanned in 1051.72 seconds
 ```
 
+### host -t A
+```
+tansh@tansh:~$ host -t A google.com
+google.com has address 74.125.205.139
+google.com has address 74.125.205.100
+google.com has address 74.125.205.101
+google.com has address 74.125.205.113
+google.com has address 74.125.205.138
+google.com has address 74.125.205.102
+```
+
+
