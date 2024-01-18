@@ -128,4 +128,29 @@ google.com has address 74.125.205.138
 google.com has address 74.125.205.102
 ```
 
+## ipconfig
+- очистить локальный dns cash
+```
+ipconfig /flushdns
+```
+- информация об IP для всех сетевых карт
+```
+ipconfig /all
+```
+## netstat 
+показывает таблицу маршрутизации, TCP соединения
 
+```
+tansh@tansh:~$ netstat
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        1      1 tansh:42314             10.80.1.6:http          LAST_ACK   
+tcp        0      0 tansh:57238             li-in-f157.1e100.:https TIME_WAIT  
+tcp        0      0 tansh:56642             ec2-63-35-30-167.:https ESTABLISHED
+tcp        1      1 tansh:56620             134.213.193.62:https    LAST_ACK   
+tcp        0      0 tansh:33592             20.119.174.243:https    ESTABLISHED
+tcp        0      0 tansh:43996             10.80.2.4:https         ESTABLISHED
+tcp        0      0 localhost:46162         localhost:40047         ESTABLISHED
+tcp        0      0 tansh:53866             162.159.136.234:https   ESTABLISHED
+
+```
