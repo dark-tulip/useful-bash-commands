@@ -38,7 +38,7 @@ First, install system requirements:
 - use `tmux ls` to watch activated jupyter-lab windows
 
 
-#### 0. install.sh
+### `install.sh`
 ```bash
 #!/bin/bash
 
@@ -48,8 +48,8 @@ sudo apt install -y python3 python3-venv tmux
 echo " ==== Finished ==== "
 ```
 
-#### 1. main.sh
-```
+### `1. main.sh`
+```bash
 #!/bin/bash
 
 SESSION_NAME="jupyter_session"
